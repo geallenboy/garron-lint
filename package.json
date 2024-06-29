@@ -1,6 +1,6 @@
 {
   "name": "@garron/lint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/geallenboy/garron-lint",
   "bugs": {
     "url": "https://github.com/geallenboy/garron-lint/issues/new"
@@ -17,43 +17,6 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "father build",
-    "dev": "father dev",
-    "lint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
-    "lint:md": "remark . --quiet --output",
-    "lint:style": "stylelint \"{src,tests}/**/*.{css,less,js,jsx,ts,tsx}\" --fix",
-    "prepack": "npm run build && clean-pkg-json",
-    "prepare": "husky install && npm run build",
-    "prettier": "prettier -c --write \"**/**\"",
-    "release": "semantic-release",
-    "start": "npm run dev",
-    "test": "father doctor",
-    "type-check": "tsc -p tsconfig-check.json"
-  },
-  "lint-staged": {
-    "*.md": [
-      "remark --quiet --output --",
-      "prettier --write --no-error-on-unmatched-pattern"
-    ],
-    "*.json": [
-      "prettier --write --no-error-on-unmatched-pattern"
-    ],
-    "*.{css,less}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{js,jsx}": [
-      "prettier --write",
-      "stylelint --fix",
-      "eslint --fix"
-    ],
-    "*.{ts,tsx}": [
-      "prettier --parser=typescript --write",
-      "stylelint --fix",
-      "eslint --fix"
-    ]
-  },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "7.5.0",
@@ -117,23 +80,6 @@
     "stylelint-less": "^3.0.1",
     "stylelint-order": "^6.0.4",
     "unist-util-visit": "^5.0.0"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@types/node": "^20.12.7",
-    "antd-style": "^3.6.2",
-    "clean-pkg-json": "^1.2.0",
-    "commitlint": "^19.3.0",
-    "eslint": "^8.57.0",
-    "father": "^4.4.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "remark": "^14.0.3",
-    "remark-cli": "^11.0.0",
-    "semantic-release": "^21.1.2",
-    "stylelint": "^16.4.0",
-    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "eslint": ">=8.42",
